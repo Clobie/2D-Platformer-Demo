@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://qu65cl8l2x7d"]
+
+[ext_resource type="Script" path="res://Game.gd" id="1_vpcu8"]
+
+[node name="Node" type="Node2D"]
+script = ExtResource("1_vpcu8")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]

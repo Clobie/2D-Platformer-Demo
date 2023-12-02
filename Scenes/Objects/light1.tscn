@@ -1,0 +1,52 @@
+[gd_scene load_steps=6 format=3 uid="uid://d2p25jv1fhqnp"]
+
+[ext_resource type="Texture2D" uid="uid://dekw0uike1dbl" path="res://Assets/Map Components/anim_light3.png" id="1_su2nx"]
+
+[sub_resource type="Animation" id="Animation_m741t"]
+resource_name = "default"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_t2d4p"]
+_data = {
+"default": SubResource("Animation_m741t")
+}
+
+[sub_resource type="Gradient" id="Gradient_i5v5g"]
+offsets = PackedFloat32Array(0, 0.672897)
+colors = PackedColorArray(1, 0.681029, 0.455749, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_yvcup"]
+gradient = SubResource("Gradient_i5v5g")
+width = 192
+height = 192
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[node name="Node2D" type="Sprite2D"]
+texture = ExtResource("1_su2nx")
+hframes = 5
+frame = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "default"
+speed_scale = 0.75
+libraries = {
+"": SubResource("AnimationLibrary_t2d4p")
+}
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+color = Color(1, 0.854902, 0.635294, 1)
+texture = SubResource("GradientTexture2D_yvcup")

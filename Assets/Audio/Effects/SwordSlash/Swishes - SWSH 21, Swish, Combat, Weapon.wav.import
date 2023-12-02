@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://6s5rydr76di4"
+path="res://.godot/imported/Swishes - SWSH 21, Swish, Combat, Weapon.wav-f5cb5e77f01bb4ea60a314987fcbf1ea.sample"
+
+[deps]
+
+source_file="res://Assets/Audio/Effects/SwordSlash/Swishes - SWSH 21, Swish, Combat, Weapon.wav"
+dest_files=["res://.godot/imported/Swishes - SWSH 21, Swish, Combat, Weapon.wav-f5cb5e77f01bb4ea60a314987fcbf1ea.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
