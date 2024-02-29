@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://cufcrfu4o5cmh"]
+
+[ext_resource type="Shader" path="res://game/shaders/screen_space/chromatic_offset/chromatic_offset.gdshader" id="1_otdbx"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_eukkx"]
+shader = ExtResource("1_otdbx")
+shader_parameter/offset = 25.0
+
+[node name="Screenspace_Shader_Chromatic_Offset" type="CanvasLayer"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_eukkx")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

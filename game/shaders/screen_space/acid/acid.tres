@@ -1,0 +1,6 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://djgcpd6xi0q88"]
+
+[ext_resource type="Shader" path="res://game/shaders/screen_space/acid/acid.gdshader" id="1_gpme3"]
+
+[resource]
+shader = ExtResource("1_gpme3")

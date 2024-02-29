@@ -1,0 +1,6 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://dfopp5gdop30c"]
+
+[ext_resource type="Shader" path="res://game/shaders/local_space/galaxy/galaxy.gdshader" id="1_eqmil"]
+
+[resource]
+shader = ExtResource("1_eqmil")

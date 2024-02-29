@@ -1,0 +1,6 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://cnu0ntiqxrvwu"]
+
+[ext_resource type="Shader" path="res://game/shaders/screen_space/galaxy/galaxy.gdshader" id="1_vdfd3"]
+
+[resource]
+shader = ExtResource("1_vdfd3")

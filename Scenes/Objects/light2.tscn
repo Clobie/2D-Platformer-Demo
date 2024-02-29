@@ -1,6 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://cfvumspa3keq"]
+[gd_scene load_steps=12 format=3 uid="uid://cfvumspa3keq"]
 
 [ext_resource type="Texture2D" uid="uid://cknenfgkm1iwb" path="res://Assets/Map Components/anim_light2.png" id="1_ll3f7"]
+[ext_resource type="Material" uid="uid://byuoyvr2ujv4r" path="res://game/shaders/local_space/acid/acid.tres" id="1_vd3cg"]
 [ext_resource type="AudioStream" uid="uid://5d0rkpy2aimo" path="res://Assets/Audio/Effects/Nature/Ambiance_Fire_Big_Loop_Mono.wav" id="2_joytn"]
 
 [sub_resource type="Gradient" id="Gradient_bl06h"]
@@ -10,15 +11,13 @@ colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 0)
 gradient = SubResource("Gradient_bl06h")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_q5qjj"]
+particle_flag_disable_z = true
 emission_shape = 3
 emission_box_extents = Vector3(10, 1, 1)
-particle_flag_disable_z = true
 spread = 180.0
-gravity = Vector3(0, -15, 0)
 initial_velocity_min = 5.0
 initial_velocity_max = 5.0
-orbit_velocity_min = 0.0
-orbit_velocity_max = 0.0
+gravity = Vector3(0, -15, 0)
 color_ramp = SubResource("GradientTexture1D_p258d")
 
 [sub_resource type="Animation" id="Animation_r2lbj"]
@@ -64,28 +63,34 @@ radius = 5.0
 amount = 50
 process_material = SubResource("ParticleProcessMaterial_q5qjj")
 lifetime = 3.0
+metadata/_edit_lock_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+material = ExtResource("1_vd3cg")
 texture = ExtResource("1_ll3f7")
 hframes = 4
+metadata/_edit_lock_ = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-autoplay = "default"
 libraries = {
 "": SubResource("AnimationLibrary_gbrhh")
 }
+autoplay = "default"
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 color = Color(1, 0.690196, 0.509804, 1)
 texture = SubResource("GradientTexture2D_b2v47")
+metadata/_edit_lock_ = true
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("2_joytn")
 autoplay = true
 max_distance = 128.0
 attenuation = 0.683021
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 3)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_511l8")
+metadata/_edit_lock_ = true

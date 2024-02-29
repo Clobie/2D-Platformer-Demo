@@ -1,6 +1,8 @@
+class_name Player
 extends CharacterBody2D
 
 @onready var anim = $AnimatedSprite2D
+@onready var state_machine = $SateMachine
 
 const RUN_SPEED = 150.0
 const WALK_SPEED = 50.0
@@ -91,7 +93,7 @@ func _physics_process(delta):
 	var jump = Input.is_action_just_pressed("jump")
 	var run = true
 	var swing = Input.is_action_just_pressed("run")
-	
+
 	if velocity.x > 0:
 		if looking_left:
 			looking_right = true
@@ -106,14 +108,14 @@ func _physics_process(delta):
 			anim.flip_h = true
 			sword_hurt_area.position.x *= -1
 			sword_hurt_area.rotation *= -1
-	
+
 	velocity.y += gravity * delta
-	
+
 	if swing and can_swing and has_sword:
 		STATE = SWORD_ATTACK
 		can_swing = false
 		play_random_slash_sound()
-	
+
 	if STATE != SWORD_ATTACK:
 		if is_on_floor():
 			if !direction and !jump and !croutch:
@@ -136,7 +138,7 @@ func _physics_process(delta):
 					STATE = CROUTCH_WALKING
 				if !direction and croutch:
 					STATE = CROUTCHING
-				
+
 		if not is_on_floor():
 			velocity.x = clamp(velocity.x + direction * WALK_SPEED * delta * AIR_CHANGE_DIRECTION_SPEED, -RUN_SPEED, RUN_SPEED)
 			if STATE != DOUBLE_JUMPING or (STATE == DOUBLE_JUMPING and anim.frame >= 5):
@@ -151,10 +153,10 @@ func _physics_process(delta):
 				STATE = DOUBLE_JUMPING
 				velocity.y = DOUBLE_JUMP_VELOCITY
 				can_double_jump = false
-			
+
 		if current_interactable and Input.is_action_just_pressed("use"):
 			current_interactable.use(self)
-		
+
 	match STATE:
 		SWORD_ATTACK:
 			anim.play("sword_attack1")
@@ -166,12 +168,12 @@ func _physics_process(delta):
 				STATE = IDLE
 				can_swing = true
 				sword_hurt_area.disabled = true
-			
+
 		IDLE:
 			if has_sword:
 				anim.play("sword_idle")
 			else:
-				anim.play("idle_standing")	
+				anim.play("idle_standing")
 			velocity.x = move_toward(velocity.x, 0, RUN_SPEED)
 		LANDING:
 			anim.play("land")
@@ -180,22 +182,22 @@ func _physics_process(delta):
 			if has_sword:
 				anim.play("jumping_sword")
 			else:
-				anim.play("jumping")	
+				anim.play("jumping")
 		DOUBLE_JUMPING:
 			if has_sword:
 				anim.play("sword_flip")
 			else:
-				anim.play("flip")	
+				anim.play("flip")
 		GLIDING:
 			if has_sword:
 				anim.play("gliding sword")
 			else:
-				anim.play("gliding")	
+				anim.play("gliding")
 		FALLING:
 			if has_sword:
 				anim.play("falling_sword")
 			else:
-				anim.play("falling")	
+				anim.play("falling")
 		WALKING:
 			anim.play("walk")
 			velocity.x = direction * WALK_SPEED
@@ -205,7 +207,7 @@ func _physics_process(delta):
 			if has_sword:
 				anim.play("sword_run")
 			else:
-				anim.play("run")	
+				anim.play("run")
 			velocity.x = direction * RUN_SPEED
 		CROUTCHING:
 			anim.play("idle_croutching")
@@ -225,7 +227,7 @@ func play_random_jump_sound():
 	randomize()
 	var stream = audio_array_jumping[randi() % audio_array_jumping.size()]
 	stream.play()
-	
+
 func play_random_slash_sound():
 	randomize()
 	var stream = audio_array_slashes[randi() % audio_array_slashes.size()]
@@ -236,7 +238,7 @@ func _on_area_2d_use_object_area_entered(area):
 	if object.has_method("interactable"):
 		if object.interactable():
 			current_interactable = object
-	
+
 func _on_area_2d_use_object_area_exited(area):
 	var object = area.get_parent()
 	if object.has_method("interactable"):
@@ -251,4 +253,3 @@ func hurt(value):
 func _on_area_2d_area_entered(area):
 	if area.get_parent().has_method("hurt"):
 		area.get_parent().hurt(-50)
-	print("asdf")

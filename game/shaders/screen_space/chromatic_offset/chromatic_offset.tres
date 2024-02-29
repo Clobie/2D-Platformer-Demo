@@ -1,0 +1,6 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://bdd561n4rhf21"]
+
+[ext_resource type="Shader" path="res://game/shaders/screen_space/chromatic_offset/chromatic_offset.gdshader" id="1_wsux5"]
+
+[resource]
+shader = ExtResource("1_wsux5")

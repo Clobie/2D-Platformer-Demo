@@ -1,4 +1,4 @@
-[gd_scene load_steps=230 format=3 uid="uid://bd07iivxb1244"]
+[gd_scene load_steps=231 format=3 uid="uid://bd07iivxb1244"]
 
 [ext_resource type="Script" path="res://Scenes/Units/Main Character/MainCharacter.gd" id="1_ka82l"]
 [ext_resource type="Texture2D" uid="uid://clye2nnv1kqvh" path="res://Assets/Units/Main Character/Character Idle 48x48.png" id="1_r78cr"]
@@ -47,6 +47,7 @@
 [ext_resource type="AudioStream" uid="uid://daui7yic7odul" path="res://Assets/Audio/Effects/SwordSlash/Swishes - SWSH 20, Swish, Combat, Weapon.wav" id="45_oxucj"]
 [ext_resource type="AudioStream" uid="uid://6s5rydr76di4" path="res://Assets/Audio/Effects/SwordSlash/Swishes - SWSH 21, Swish, Combat, Weapon.wav" id="46_neykh"]
 [ext_resource type="AudioStream" uid="uid://tdrq3n41jy4" path="res://Assets/Audio/Effects/SwordSlash/Swishes - SWSH 22, Swish, Combat, Weapon.wav" id="47_46unf"]
+[ext_resource type="Script" path="res://Scenes/Units/Main Character/SateMachine.gd" id="48_2f087"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8kuk1"]
 shader = ExtResource("1_thqpm")
@@ -807,7 +808,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"croutch_walk",
-"speed": 5.0
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -1454,7 +1455,8 @@ script = ExtResource("1_ka82l")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 material = SubResource("ShaderMaterial_8kuk1")
 sprite_frames = SubResource("SpriteFrames_tbob0")
-animation = &"idle_standing"
+animation = &"croutch_walk"
+frame_progress = 0.292238
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 2)
@@ -1568,6 +1570,9 @@ position = Vector2(12, -3)
 rotation = -0.624828
 shape = SubResource("CapsuleShape2D_gd7k1")
 disabled = true
+
+[node name="SateMachine" type="Node" parent="."]
+script = ExtResource("48_2f087")
 
 [connection signal="area_entered" from="Area2DUseObject" to="." method="_on_area_2d_use_object_area_entered"]
 [connection signal="area_exited" from="Area2DUseObject" to="." method="_on_area_2d_use_object_area_exited"]

@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://cqy3gb1lxyy2h"]
+
+[ext_resource type="Material" uid="uid://cctwfja6jmp7q" path="res://Scenes/lightning/lightning.tres" id="1_vkb8g"]
+
+[sub_resource type="Gradient" id="Gradient_4bq27"]
+offsets = PackedFloat32Array(0, 0.540541, 1)
+colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_to6hj"]
+gradient = SubResource("Gradient_4bq27")
+width = 512
+height = 512
+use_hdr = true
+fill_to = Vector2(0, 1)
+
+[node name="Lightning" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = ExtResource("1_vkb8g")
+offset_top = 250.0
+offset_right = 500.0
+offset_bottom = 750.0
+rotation = -1.5708
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+visible = false
+position = Vector2(250.75, 6)
+scale = Vector2(0.977539, 0.171875)
+blend_mode = 2
+texture = SubResource("GradientTexture2D_to6hj")

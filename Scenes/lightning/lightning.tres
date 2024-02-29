@@ -1,0 +1,15 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://cctwfja6jmp7q"]
+
+[ext_resource type="Shader" path="res://Scenes/lightning/lightning.gdshader" id="1_uy04b"]
+
+[resource]
+shader = ExtResource("1_uy04b")
+shader_parameter/effect_color = Color(0.2, 0.3, 0.8, 1)
+shader_parameter/octave_count = 5
+shader_parameter/amp_start = 0.131
+shader_parameter/amp_coeff = 0.54
+shader_parameter/freq_coeff = 3.4
+shader_parameter/speed = 0.346
+shader_parameter/alpha_threshold = 2.171
+shader_parameter/width = 2.773
+shader_parameter/offset = 0.275
