@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dnn44auken35u"]
+[gd_scene load_steps=19 format=3 uid="uid://dnn44auken35u"]
 
 [ext_resource type="Script" path="res://Scenes/Levels/level_1.gd" id="1_1qfeh"]
 [ext_resource type="Texture2D" uid="uid://chqohq7bbjpmm" path="res://Assets/Map Components/Background_0.png" id="1_1shen"]
@@ -14,6 +14,7 @@
 [ext_resource type="AudioStream" uid="uid://b1b34igg0j3ev" path="res://Assets/Audio/Music/Metal/DavidKBD - Eternity Pack - 06 - God of darkness - loop.ogg" id="8_krrtj"]
 [ext_resource type="PackedScene" uid="uid://bxpfc7l7qibrv" path="res://Scenes/Objects/Interactable/Chest/Chest.tscn" id="10_hcs66"]
 [ext_resource type="PackedScene" uid="uid://b26bkt33yhklc" path="res://Scenes/Objects/Interactable/Door/Door.tscn" id="11_mh7mu"]
+[ext_resource type="Texture2D" uid="uid://bwfqbn6dn177q" path="res://Assets/84ff87503d3ca93fb0201befd80575a4.png" id="15_7605m"]
 
 [sub_resource type="Gradient" id="Gradient_fcj37"]
 offsets = PackedFloat32Array(0.0137457, 0.522337, 1)
@@ -147,5 +148,17 @@ position = Vector2(943, 603)
 metadata/_edit_lock_ = true
 
 [node name="BossNecromancer" parent="." instance=ExtResource("7_ttqi8")]
-position = Vector2(614, 1054)
+position = Vector2(612, 1086)
 metadata/_edit_lock_ = true
+
+[node name="84Ff87503d3Ca93Fb0201Befd80575a4" type="Sprite2D" parent="."]
+position = Vector2(1115.75, 77.25)
+scale = Vector2(0.154297, 0.142578)
+texture = ExtResource("15_7605m")
+
+[node name="TextEdit" type="TextEdit" parent="."]
+offset_left = 1032.0
+offset_top = 16.0
+offset_right = 1203.0
+offset_bottom = 55.0
+text = "Raw Chicken Vendor"

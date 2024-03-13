@@ -1431,14 +1431,14 @@ radius = 7.0
 height = 28.0
 
 [sub_resource type="Gradient" id="Gradient_yye73"]
-interpolation_mode = 2
-offsets = PackedFloat32Array(0, 0.682243)
-colors = PackedColorArray(0.284838, 0.160186, 1.68458e-07, 1, 0, 0, 0, 1)
+offsets = PackedFloat32Array(0, 0.425, 0.778571)
+colors = PackedColorArray(0.47474, 0.268475, 0, 1, 0.227451, 0.129412, 0, 0.823529, 0, 0, 0, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_xvnm1"]
 gradient = SubResource("Gradient_yye73")
-width = 256
-height = 256
+width = 325
+height = 325
+use_hdr = true
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 
@@ -1463,6 +1463,7 @@ position = Vector2(0, 2)
 shape = SubResource("CapsuleShape2D_u72ql")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)
 position_smoothing_enabled = true
 
 [node name="PointLight2D" type="PointLight2D" parent="."]

@@ -26,12 +26,12 @@ _data = {
 
 [sub_resource type="Gradient" id="Gradient_i5v5g"]
 offsets = PackedFloat32Array(0, 0.672897)
-colors = PackedColorArray(1, 0.681029, 0.455749, 1, 0, 0, 0, 1)
+colors = PackedColorArray(0.94774, 0.495254, 1.23215e-05, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_yvcup"]
 gradient = SubResource("Gradient_i5v5g")
-width = 192
-height = 192
+width = 128
+height = 128
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 
